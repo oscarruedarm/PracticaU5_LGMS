@@ -1,0 +1,25 @@
+css
+Run
+Copy code
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+h1, h2, h3 {
+    color: #2c3e50; /* Color para los encabezados */
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #34495e; /* Color de fondo para el pie de página */
+    color: white; /* Color del texto en el pie de página */
+}
+
+button {
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9; /* Color de fondo al pasar el mouse */
+}

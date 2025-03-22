@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOTR</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="relative bg-cover bg-center h-screen " style="background-image: url('./image/lotr.jpg');">
+    <!-- <body class="bg-gray-100"> -->
+    <div class="container mx-auto p-4 bg-black opacity-40">
+        <!-- <div class="container mx-auto p-5"> -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-yellow-400">Lord of The Rings</h1>
+            <p class="mt-2 text-lg text-red-200">Pagina Fandom de Tolkien</p>
+        </header>
+
+        <main>
+            <section class="mb-10 text-white">
+                <h2 class="text-2xl font-semibold text-yellow-400">Introducción</h2>
+                <p class="mt-4">En esta pagina vamos resumir y explicar un poco acerca de la cronologia y personajes de los la saga creada por J.J.Tolkien, para poder tener un conocimiento mas profundo y entender su Lore</p>
+                <ul class="list- list-inside mt-4 ">
+                    <li>Personajes Pincipales.</li>
+                    <li>Cronologia de la historia.</li>
+                    <li>Resumen de cada Libro.</li>
+                    <li>Art Book.</li>
+                    <li>Quiz.</li>
+                </ul>
+            </section>
+
+            <section class="mb-10">
+                <h2 class="text-2xl font-semibold text-yellow-400">Walked trí en coe </h2>
+                <div class="mt-5">
+                    <div class="bg-white p-5 rounded-lg shadow-md mb-5" id="perso">
+                        <h3 class="text-xl font-bold text-yellow-700" >Personajes</h3>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow-md mb-5" id="crono">
+                        <h3 class="text-xl font-bold text-yellow-700">Cronologia de la historia</h3>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow-md mb-5" id="resume">
+                        <h3 class="text-xl font-bold text-yellow-700">Resumen de cada Libro</h3>
+                    </div>
+                    <div class="bg-white p-5 rounded-lg shadow-md mb-5" >
+                        <h3 class="text-xl font-bold text-yellow-700">ArtBook</h3>
+                        <div class="max-w-3xl mx-auto py-10">
+                            <div class="relative overflow-hidden rounded-lg">
+                                <div class="flex transition-transform duration-100 ease-in-out" id="slider">
+                                    <img src="./image/fellowship.jpg" alt="Imagen 1" class="w-full flex-shrink-0">
+                                    <img src="./image/landscape.jpg" alt="Imagen 2" class="w-full flex-shrink-0">
+                                    <img src="./image/moria.jpg" alt="Imagen 3" class="w-full flex-shrink-0">
+                                </div>
+                                <button class="absolute top-1/2 transform -translate-y-1/2 left-2 bg-gray-800 text-white p-2 rounded-full" id="prev">
+                                    &lt;
+                                </button>
+                                <button class="absolute top-1/2 transform -translate-y-1/2 right-2 bg-gray-800 text-white p-2 rounded-full" id="next">
+                                    &gt;
+                                </button>
+                            </div>
+                    </div>
+                </div>
+            </section>
+
+           <section>
+                <div class="max-w-sm- mx-auto rounded-lg shadow-md p-4 mt-4 ">
+                    <h1 class="font-bold mb-8 text-center text-yellow-700 text-xl">Cuanto sabes de LOTR!</h1>
+                    <div id="quizContainer" class="flex flex-col p4 gap-2 hidden">
+                        <button id="nextBtn" class="bg-blue-500 text-white px-4 py-2 rounded mt-4 hidden">Siguiente</button>
+                        <div id="result" class="mt-4 text-center"></div>
+                    </div>
+                </div>
+            </section>
+            <button id="start" class="mt-5 bg-yellow-500 text-white px-4 py-2 rounded">Iniciar Cuestionario</button>
+        </main>
+                <footer class="text-center mt-10">
+                    <p>&copy; KanhCorp. Todos los derechos reservados.</p>
+                </footer>
+            </div>
+            <script src="data.js"></script>
+            <script src="script.js"></script>
+        </body>
+        </html>
