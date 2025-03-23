@@ -1,129 +1,17 @@
-// const empezar = document.getElementById('start');
-// const contenedor = document.getElementById('quiz');
-// const questionContainer = document.getElementById('question');
-// const answerButtons = document.getElementById('answer-buttons');
-// const nextButton = document.getElementById('next-button');
-// const questionCounter = document.getElementById('question-counter');
-
-//questions
-const questiones = [
-    {
-        question: "¿Quién es el portador del Anillo Único al inicio de la historia?",
-        answers: [
-            { text: "Aragorn", correct: false },
-            { text: "Frodo", correct: true },
-            { text: "Gandalf", correct: false },
-            { text: "Boromir", correct: false }
-        ]
-    },
-    {
-        question: "¿Qué criatura es Gollum originalmente",
-        answers: [
-            { text: "Un elfo", correct: false },
-            { text: "Un hobbit", correct: true },
-            { text: "Un orco", correct: false },
-            { text: "Un hombre", correct: false }
-        ]
-    },
-    {
-        question: "¿Cuál es el nombre del lugar donde se forjó el Anillo Único?",
-        answers: [
-            { text: "Rivendel", correct: false },
-            { text: "Isengard", correct: false },
-            { text: "Mordor", correct: true },
-            { text: "La Comarca", correct: false }
-        ]
-    },
-    {
-        question: "¿Quién es el rey de Rohan?",
-        answers: [
-            { text: "Théoden", correct: true },
-            { text: "Faramir", correct: false },
-            { text: "Denethor", correct: false },
-            { text: "Elrond", correct: false }
-        ]
-    },
-    {
-        question: "¿Qué objeto se utiliza para convocar a los Ents?",
-        answers: [
-            { text: "Un cuerno", correct: true },
-            { text: "Un anillo", correct: false },
-            { text: " Un bastón", correct: false },
-            { text: "Un silbato", correct: false }
-        ]
-    }
-];
-
-// let currentQuestionIndex = 0;
-// let score = 0;
-
-// //empezar.addEventListener('click', startQuiz);
-
-// function startQuiz() {
-//     empezar.classList.add('hidden');
-//     contenedor.classList.remove('hidden');
-//     currentQuestionIndex = 0;
-//     score = 0;
-//     nextButton.classList.add('hidden');
-//     showQuestion(questions[currentQuestionIndex]);
-// }
-
-// function showQuestion(question) {
-//     questionContainer.innerText = question.question;
-//     //limpiamos 
-//     answerButtons.innerHTML = '';
-//     question.answers.forEach(answer => {
-//         const button = document.createElement('button');
-//         button.innerText = answer.text;
-//         button.classList.add('bg-red-500', 'text-white', 'px-4', 'py-2', 'rounded', 'm-1');
-//         button.addEventListener('click', () => selectAnswer(answer));
-//         answerButtons.appendChild(button);
-//     });
-//     questionCounter.innerText = `Pregunta ${currentQuestionIndex + 1} de ${questions.length}`;
-// }
-
-// function selectAnswer(answer) {
-//     if (answer.correct) {
-//         score++;
-//     }
-//     nextButton.classList.remove('hidden');
-// }
-
-// //nextButton.addEventListener('click', () => {
-//     // currentQuestionIndex++;
-//     // if (currentQuestionIndex < questions.length) {
-//     //     showQuestion(questions[currentQuestionIndex]);
-//     //     nextButton.classList.add('hidden');
-//     // } else {
-//     //     showScore();
-//     // }
-// //});
-
-// function showScore() {
-//     questionContainer.innerText = `Tu puntaje es ${score} de ${questions.length}`;
-//     answerButtons.innerHTML = '';
-//     nextButton.classList.add('hidden');
-//     //let reload = document.createElement('button');
-//     //reload.type ="button";
-//     //reload.innerHTML = "Volver a hacer";
-//     ////reload.style="mt-5 bg-blue-500 text-white px-4 py-2 rounded";
-//     //reload.addEventListener('click',reDoIt);
-//     //questionCounter.appendChild(reload);
-// }
-
-// const reDoIt = ()=> location.reload();
-
 const empezar = document.getElementById('start');
 const quizContainer = document.getElementById('quizContainer');
+//ponemos el elemento en un const para luego ocultar el div detras y jugar con los botones del quiz
 
 empezar.addEventListener('click', empezarQuiz);
 
+//funcion que de comienzo al quiz, activado por el boton
 function empezarQuiz() {
          empezar.classList.add('hidden');
          quizContainer.classList.remove('hidden');
          cargaPreguntas();
    
      }
+     //nuestro array de preguntas
 const questions = [
     {
     question: "¿Quién es el portador del Anillo Único al inicio de la historia?",
@@ -183,22 +71,26 @@ const questions = [
 }
 ];
 
+//variables que vaqmos a usar para llevar la puntuacion por cada quiz realizado
 let preguntaActual = 0;
 let puntuacion = 0;
 
+//funcion de la creacion de las preguntas en botones dinamicamante
 function cargaPreguntas() {
     
     quizContainer.innerHTML = ''; // Limpiar el contenedor
 
     const question = questions[preguntaActual];
     const questionDiv = document.createElement('div');
-    questionDiv.classList.add('mb-4','gap-4','flex');
+    questionDiv.classList.add('mb-4','gap-4','flex', 'flex-col', 'items-center', 'justify-center');
 
+    //creamos el p que contiene la pregunta y vamos poniendo detras el numero de la pregunta
     const questionText = document.createElement('p');
-    questionText.classList.add('font-semibold');
+    questionText.classList.add('font-semibold','text-lg', 'text-gray-700');
     questionText.textContent = `${preguntaActual + 1}. ${question.question}`;
     questionDiv.appendChild(questionText);
 
+    //recorremos en array de preguntas y vamos creando dinamicamente los botones con la informacion dentro
     for (const [key, value] of Object.entries(question.answers)) {
         const button = document.createElement('button');
         button.type = 'button';
@@ -210,7 +102,7 @@ function cargaPreguntas() {
 
     quizContainer.appendChild(questionDiv);
 }
-
+//funcion que va iterando por cada respuesta si es correcta va sumando al contador para luego mostrarlo
 function seleccionado(rSeleccionado) {
     const rCorrecta = questions[preguntaActual].correct;
     if (rSeleccionado === rCorrecta) {
@@ -223,12 +115,23 @@ function seleccionado(rSeleccionado) {
         resultado();
     }
 }
-
+//funcion del resultado nuevamante juega con el hidde y oculta el otro contenedor y enseña el del resultado
 function resultado() {
-    const quizContainer = document.getElementById('quizContainer');
-    quizContainer.innerHTML = ''; // Limpiar el contenedor
+  
+    //ocultamos el div de las preguntas
+    quizContainer.classList.add('hidden');
+    const quizResult = document.getElementById('quizResult');
+    quizResult.classList.remove('hidden');
+
+    //creamos nuestro div del resultado
     const resultDiv = document.getElementById('result');
     resultDiv.textContent = `Tu puntuación es: ${puntuacion} de ${questions.length}`;
-    document.getElementById('nextBtn').classList.add('hidden'); // Ocultar el botón de siguiente
+
+    //nuestro boton recarga la pagina para volver a rehacer el quiz
+    const reHacer = document.getElementById('reDoIt'); 
+    reHacer.addEventListener('click', ()=>{
+        location.reload();
+    })
+
 }
 

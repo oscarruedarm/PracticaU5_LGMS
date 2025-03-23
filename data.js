@@ -103,6 +103,10 @@ function rellenado(arr,contenedor) {
     const creaDiv = document.createElement('div');
     const creaTitulo = document.createElement('h3');
     const creaParrafo = document.createElement('p');
+
+    creaDiv.classList.add('mb-4', 'p-4', 'border', 'border-gray-300', 'rounded');
+    creaTitulo.classList.add('text-xl', 'font-semibold', 'text-yellow-500');
+    creaParrafo.classList.add('text-gray-700');
   
     //asignamos el valor de nuestros H y nuestros P.
     creaTitulo.textContent = `${arr[i].titulo}`;
@@ -124,10 +128,14 @@ for(let i =0; i < cronologia.length; i++){
 
    const creaDiv = document.createElement('div');
    const creaTitulo = document.createElement('ul');
+
+   creaDiv.classList.add('mb-4', 'p-4', 'border', 'border-gray-300', 'rounded');
+   creaTitulo.classList.add('text-xl', 'font-semibold', 'text-yellow-500');
    
    creaTitulo.textContent = `${cronologia[i].año}`;
     for(j=0; j< eventos.length;j++){
       const creaParrafo = document.createElement('li');
+      creaParrafo.classList.add('text-gray-700');
       creaParrafo.textContent = `${eventos[j]}`;
       creaTitulo.appendChild(creaParrafo);
 
