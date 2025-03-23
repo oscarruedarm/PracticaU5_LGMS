@@ -64,8 +64,63 @@ const questions = [
     {
         a: "Un cuerno",
         b: "Un anillo",
-        c: " Un bastón",
+        c: "Un bastón",
         d: "Un silbato"
+    } ,
+    correct: "a"
+},
+{
+    question: "¿Quién es el creador del Anillo Único?",
+    answers:
+    {
+        a: "Sauron",
+        b: "Celebrimbor",
+        c: "Morgoth",
+        d: "Saruman"
+    } ,
+    correct: "c"
+},
+{
+    question: "¿Qué raza es Legolas?",
+    answers:
+    {
+        a: "Humano",
+        b: "Enano",
+        c: "Elfo",
+        d: "Hobbit"
+    } ,
+    correct: "c"
+},
+{
+    question: "¿Cuál es el nombre de la espada de Aragorn?",
+    answers:
+    {
+        a: "Glamdring",
+        b: "Andúril",
+        c: "Sting",
+        d: "Narsil"
+    } ,
+    correct: "b"
+},
+{
+    question: "¿Quién es el padre de Arwen?",
+    answers:
+    {
+        a: "Elrond",
+        b: "Galadriel",
+        c: "Celeborn",
+        d: "Thranduil"
+    } ,
+    correct: "a"
+},
+{
+    question: "¿Qué criatura es el 'Nazgûl'?",
+    answers:
+    {
+        a: "Un dragón",
+        b: "Un espectro",
+        c: "Un troll",
+        d: "Un elfo oscuro"
     } ,
     correct: "a"
 }
